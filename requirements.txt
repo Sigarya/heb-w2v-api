@@ -1,0 +1,10 @@
+<<<<<<< HEAD
+fastapi
+uvicorn
+gensim==4.3.3
+numpy
+=======
+fastapi
+uvicorn
+gensim==4.3.3
+>>>>>>> ab13467 (initial commit)
