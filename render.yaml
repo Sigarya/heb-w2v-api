@@ -6,12 +6,3 @@ services:
     plan: free
     buildCommand: pip install -r requirements.txt
     startCommand: uvicorn app:app --host 0.0.0.0 --port 10000
-=======
-services:
-  - type: web
-    name: hebrew-w2v-api
-    env: python
-    plan: free
-    buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn app:app --host 0.0.0.0 --port 10000
->>>>>>> ab13467 (initial commit)
