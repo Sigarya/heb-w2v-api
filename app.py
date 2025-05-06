@@ -4,7 +4,8 @@ from pydantic import BaseModel
 import numpy as np
 
 # Load the model
-model = gensim.models.KeyedVectors.load('model/model.mdl')
+MODEL_PATH = os.path.join(os.path.dirname(__file__), 'model.mdl')
+model = KeyedVectors.load(MODEL_PATH)
 
 app = FastAPI()
 
