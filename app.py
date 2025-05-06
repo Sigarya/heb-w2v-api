@@ -1,4 +1,6 @@
+import os
 import gensim
+from gensim.models import KeyedVectors  # הוספתי את השורה הזו
 from fastapi import FastAPI
 from pydantic import BaseModel
 import numpy as np
