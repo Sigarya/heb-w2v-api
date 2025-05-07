@@ -1,9 +1,7 @@
 import os
-import gensim
-from gensim.models import KeyedVectors  # הוספתי את השורה הזו
+from gensim.models import KeyedVectors
 from fastapi import FastAPI
 from pydantic import BaseModel
-import numpy as np
 
 # Load the model
 MODEL_PATH = os.path.join(os.path.dirname(__file__), 'model.mdl')
@@ -16,13 +14,16 @@ class SimilarityRequest(BaseModel):
     word1: str
     word2: str
 
-@app.get("/similarity")
+@app.post("/similarity")
 def get_similarity(request: SimilarityRequest):
-    word1 = request.word1
-    word2 = request.word2
     try:
-        # Calculate the cosine similarity
-        similarity = model.similarity(word1, word2)
-        return {"word1": word1, "word2": word2, "similarity": similarity}
+        similarity = model.similarity(request.word1, request.word2)
+        return {
+            "word1": request.word1,
+            "word2": request.word2,
+            "similarity": similarity
+        }
     except KeyError:
-        return {"error": "One or both words not in vocabulary."}
+        return {
+            "error": "One or both words not in vocabulary."
+        }
